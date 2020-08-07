@@ -14,6 +14,12 @@ Agnoster-like, basically [AgnosterZak for oh-my-zsh](https://github.com/zakaziko
 
 The one I use. I like that it's quite mininal (compared to Agnoster), but still has detailed Git info.
 
+Let's look at an example:
+![adding and image and pushing to remote Git repository](3-example.png)
+
+There is also a `help` command that explains the symbols I use
+![showing help command](3-help.png)
+
 ## Installation
 Assuming you have a default installation of Oh My ZSH, you can install my themes like this, using `sommerfeld3.zsh-theme` as example:
 
