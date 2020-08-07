@@ -12,7 +12,7 @@ Agnoster-like, basically [AgnosterZak for oh-my-zsh](https://github.com/zakaziko
 
 ## [sommerfeld3.zsh-theme](./sommerfeld3.zsh-theme)
 
-The one I use. I like that it's quite mininal (compared to Agnoster), but still has detailed Git info.
+The one I use. It's heavily inspired by [Josh Dick's prompt](https://joshdick.net/2017/06/08/my_git_prompt_for_zsh_revisited.html), not so much in the actual looks, but I liked his code structure. I like that the theme is quite mininal (compared to Agnoster), but still has detailed Git info.
 
 Let's look at an example:
 ![adding and image and pushing to remote Git repository](3-example.png)
