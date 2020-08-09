@@ -12,8 +12,6 @@ vpn_info() {
 
  if [ "$CONNECTED_VPN_NAME" ]; then
   print -P -- "%{$fg[green]%}🔒 %{$CONNECTED_VPN_NAME%}%{$reset_color%}"
- elif [ "$DISCONNECTED_VPN_NAME" ]; then
-  print -P -- "%{$fg[red]%}🔓 No VPN%{$reset_color%}"
  fi
 }
 
