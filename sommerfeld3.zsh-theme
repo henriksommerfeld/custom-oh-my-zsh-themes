@@ -6,6 +6,16 @@ ssh_info() {
   [[ "$SSH_CONNECTION" != '' ]] && echo '%(!.%{$fg[red]%}.%{$fg[yellow]%})%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}:' || echo ''
 }
 
+vpn_info() {
+ local CONNECTED_VPN_NAME="$(scutil --nc list 2>&1 | grep "(Connected)" | cut -d'"' -f2)"
+ local DISCONNECTED_VPN_NAME="$(scutil --nc list 2>&1 | grep "(Disconnected)" | cut -d'"' -f2)"
+
+ if [ "$CONNECTED_VPN_NAME" ]; then
+  print -P -- "%{$fg[green]%}🔒 %{$CONNECTED_VPN_NAME%}%{$reset_color%}"
+ elif [ "$DISCONNECTED_VPN_NAME" ]; then
+  print -P -- "%{$fg[red]%}🔓 No VPN%{$reset_color%}"
+ fi
+}
 
 # Echoes information about Git repository status when inside a Git repository
 local AHEAD="%{$fg[red]%}NUM↑%{$reset_color%}"
@@ -117,7 +127,7 @@ git_info() {
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
-$(ssh_info)%{$fg[magenta]%}%~%u $(git_info)
+$(ssh_info)%{$fg[magenta]%}%~%u $(git_info) $(vpn_info)
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
 help () {
