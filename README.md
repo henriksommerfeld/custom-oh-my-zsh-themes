@@ -8,7 +8,7 @@ Basic theme that only uses existing variables for customisation.
 
 ## [sommerfeld2.zsh-theme](./sommerfeld3.zsh-theme)
 
-Agnoster-like, basically [AgnosterZak for oh-my-zsh](https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme) with a few things less. You might be better off using that one.
+Agnoster-like, basically [AgnosterZak for oh-my-zsh](https://github.com/zakaziko99/agnosterzak-ohmyzsh-theme). It's showing current temperature on a Raspberry Pi running Ubuntu 20.04.
 
 ## [sommerfeld3.zsh-theme](./sommerfeld3.zsh-theme)
 
