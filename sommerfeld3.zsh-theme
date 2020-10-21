@@ -15,6 +15,14 @@ vpn_info() {
  fi
 }
 
+wireguard_info() {
+  local WG_NAME="$(ls /var/run/wireguard | grep .name | cut -d'.' -f1 | cut -d'-' -f2)"
+
+  if [ "$WG_NAME" ]; then
+    print -P -- "%{$fg[green]%}🔒%{$WG_NAME%}%{$reset_color%}"
+  fi
+}
+
 # Echoes information about Git repository status when inside a Git repository
 local AHEAD="%{$fg[red]%}NUM↑%{$reset_color%}"
 local BEHIND="%{$fg[cyan]%}NUM↓%{$reset_color%}"
@@ -124,7 +132,7 @@ git_info() {
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
-$(ssh_info)%{$fg[magenta]%}%~%u $(git_info) $(vpn_info)
+$(ssh_info)%{$fg[magenta]%}%~%u $(git_info) $(wireguard_info) $(vpn_info)
 %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
 
 help () {
