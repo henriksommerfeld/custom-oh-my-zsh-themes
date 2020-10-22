@@ -16,7 +16,7 @@ vpn_info() {
 }
 
 wireguard_info() {
-  local WG_NAME="$(ls /var/run/wireguard | grep .name | cut -d'.' -f1 | cut -d'-' -f2)"
+  local WG_NAME="$([ -d /var/run/wireguard ] && ls /var/run/wireguard | grep .name | cut -d'.' -f1 | cut -d'-' -f2)"
 
   if [ "$WG_NAME" ]; then
     print -P -- "%{$fg[green]%}🔒 %{$WG_NAME%}%{$reset_color%}"
