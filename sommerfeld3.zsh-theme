@@ -48,7 +48,7 @@ git_info() {
   local UPSTREAM=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
   if [[ -n "${UPSTREAM}" && "${UPSTREAM}" != "@{upstream}" ]]; then HAS_UPSTREAM=true; fi
 
-  if [[ $HAS_UPSTREAM == false ]]; then    
+  if [[ $HAS_UPSTREAM == false ]]; then
     GIT_LOCATION="$GIT_LOCATION (only local)"
   fi
 
@@ -95,7 +95,7 @@ git_info() {
   local NUMBER_DELETED=$(\grep -c "^.D" <<< "${GIT_STAUS}")
   local NUMBER_MODIFIED=$(\grep -c "^.M" <<< "${GIT_STAUS}")
   local NUMBER_UNTRACKED=$(\grep -c "^??" <<< "${GIT_STAUS}")
-  
+
   if [[ $NUMBER_MODIFIED -gt 0 ]]; then
     FLAGS+=( "${MODIFIED//NUM/$NUMBER_MODIFIED} " )
   fi
@@ -110,12 +110,12 @@ git_info() {
 
   local DIRTY=$(parse_git_dirty)
   if [[ -n $DIRTY ]]; then
-  else 
+  else
     FLAGS+=( "$CLEAN " )
   fi
 
   # Stashes
-  local NUMBER_STASHES="$(git stash list -n1 2> /dev/null | wc -l)"
+  local NUMBER_STASHES="$(git stash list 2> /dev/null | wc -l)"
   if [[ $NUMBER_STASHES -gt 0 ]]; then
     local TRIMMED_NUMBER="${NUMBER_STASHES##*(  )}"
     FLAGS+=( "${STASHES//NUM/$TRIMMED_NUMBER} " )
