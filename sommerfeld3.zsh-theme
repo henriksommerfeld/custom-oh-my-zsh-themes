@@ -49,7 +49,7 @@ git_info() {
   if [[ -n "${UPSTREAM}" && "${UPSTREAM}" != "@{upstream}" ]]; then HAS_UPSTREAM=true; fi
 
   if [[ $HAS_UPSTREAM == false ]]; then
-    GIT_LOCATION="$GIT_LOCATION (only local)"
+    GIT_LOCATION="$GIT_LOCATION (no upstream)"
   fi
 
   local -a DIVERGENCES
